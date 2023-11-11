@@ -57,7 +57,8 @@ my-app/             # プロジェクトフォルダ
 ```
 
 App.jsの中身を下記のように変更しましょう。  
-`return(<div classname ~~~)`の括弧内を全て消去し、`<h1>Hello,world</h1>` を追加し、保存します。
+`return(<div classname ~~~)`の括弧内を全て消去し、`<h1>Hello,world</h1>` を追加し、保存します。  
+（下記をコピーして上書き保存してもOKです）
 ```
 import logo from './logo.svg';
 import './App.css';
@@ -70,14 +71,15 @@ function App() {
 
 export default App;
 ```
-ブラウザに戻ると、Hello,worldと表示されているはずです！
+ブラウザに戻ると、Hello,worldと表示されます。
 
 ## 1.5 アプリケーションの変更体験(2)
 さらにApp.jsの中身を下記のように変更しましょう。  
 Reactでは複数の要素を返す場合、親要素（`div`）で囲います。  
-まず、`const message = "Demo or Die";`で`message`を定義します。  
-その後、定義したメッセージを表示するために、`return()`内を変更します。`return()`内にて、`message`を参照する場合は`{}`で囲う必要があります。  
-下記をコピーして上書き保存してください。
+まず、`const message = "Demo or Die";`と追記し、`message`を定義します。  
+定義したメッセージを表示するために、`return()`内を変更します。  
+`return()`内にて、`message`を参照する場合は`{}`で囲う必要があります。  
+（下記をコピーして上書き保存してください）
 
 ```
 import logo from './logo.svg';
@@ -96,7 +98,7 @@ function App() {
 export default App;
 ```
 
-ブラウザに戻ると、Hello,worldに加えて、Demo or Dieが追加表示されているはずです！
+ブラウザに戻ると、Hello,worldに加えて、Demo or Dieが追加表示されます。
 
 ## 1.6 App.js内のイメージについて
 ここで全体のイメージを掴むため、少し粗い概略を下記に示します。
@@ -125,7 +127,7 @@ function App() {
 ## 2.1 環境構築
 Githubのリンクからファイルをダウンロードしてください。
 
-その後先ほど作成したmy-appのフォルダをダウンロードしたファイルと入れ替えてください。
+作成したmy-appフォルダの中身をダウンロードしたファイルと入れ替えてください。
 
 ## 2.2 ファイル構造
 Pixabay簡易クローンに際して、変更したファイル構成を示します。
@@ -145,6 +147,9 @@ my-app/
 │ └── ImageGallery.css # ImageGalleryのスタイルを定義するCSSファイル
 ,,,
 ```
+
+<img width="565" alt="Reactimage1" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/434f83a9-51d0-4a0d-b6d5-55b1b1a5ee12">
+
 
 ## 2.3 完成
 
