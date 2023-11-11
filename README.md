@@ -16,15 +16,20 @@ Reactはコンポーネント指向で拡張性が高く、宣言的でソース
 何はともあれ、Reactを体験しましょう！ 
 ## 1.1 環境構築
 Reactを動作する環境を構築しましょう。
-①.VScode起動 
-②.作業ディレクトリを選択  
-③.ターミナルを開く 
-④.「npx create-react-app フォルダ名」と入力後、Enter 
-⑤.「Ok to proceed? (y)」と入力されたら、Enter 
-※npxが使えない場合は、「npm install npx -g」等でインストールしてください。
+①. VScode起動  
+②. 作業ディレクトリを選択  
+③. ターミナルを開く  
+④. `npx create-react-app my-app`と入力後、Enter  
+※ my-app＝フォルダ名になります。
+⑤. `Ok to proceed? (y)`と入力されたら、Enter  
+※npxが使えない場合は、`npm install npx -g`等でインストールしてください。
 
-少し時間がかかりますが、「my-app」
+少し時間がかかりますが、my-appというフォルダが作成されます。  
+`cd my-app`とターミナルに入力し、作業ディレクトリをmy-appに変更しましょう。
 
+## 1.2 開発モードでの起動
+ターミナルに、`npm start`と入力してみましょう。  
+ブラウザが立ち上がり[http://localhost:3000]、
 
 
 ## ファイル構造
