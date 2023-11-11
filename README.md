@@ -57,7 +57,7 @@ my-app/             # プロジェクトフォルダ
 ```
 
 App.jsの中身を下記のように変更しましょう。  
-`return(<div classname ~~~)`の括弧内を全て消去し、`<h1>Hello,world</h1>` を追加し、保存します。 
+`return(・・・)`の括弧内を全て消去し、`<h1>Hello,world</h1>` を追加し、保存します。 
 
 *App.jsのサンプルを下記に示します。
 ```
@@ -75,12 +75,12 @@ export default App;
 ブラウザに戻ると、Hello,worldと表示されます。
 
 ## 1.5 アプリケーションの変更体験(2)
-定数を宣言し、それを表示するように変更してみましょう。
-まず、`function App(){`の後に、定数（今回はmessage）を宣言します。
+定数を宣言し、それを表示するように変更してみましょう。  
+まず、`function App({`の後に、定数（今回はmessage）を宣言します。  
 `const message = "Demo or Die";`と追記してください。  
-定義した`message`を表示するために、`return()`内を変更します。  
+定義した`message`を表示するために、`return(・・・)`内を変更します。  
 ただし、Reactでは複数の要素を返す場合、親要素（`div`）で囲います。  
-また`return()`内で`message`を参照する場合は`{}`で囲う必要があります。 
+また`return(・・・)`内で`message`を参照する場合は`{}`で囲う必要があります。
 
 *App.jsのサンプルを下記に示します。
 
@@ -135,7 +135,7 @@ Githubのリンクからファイルをダウンロードしてください。
 ## 2.2 ファイル構造
 Pixabay簡易クローンに際して、変更したファイル構成を示します。
 
-index.jsはエントリーポイントであり、アプリケーションのルートコンポーネントであるApp.jsをレンダリングします。App.jsはアプリケーションのメインコンポーネントで、アプリケーションの主要なUIの構造とロジックがここで定義されます。ImageGallery.jsは、App.jsから渡されるプロップス（データ）を使用して、画像ギャラリーのUIを構築します。
+index.jsはエントリーポイントであり、アプリケーションのルートコンポーネントであるApp.jsをレンダリングします。App.jsはアプリケーションのメインコンポーネントで、アプリケーションの主要なUIの構造とロジックがここで定義されます。ImageGallery.jsは、App.jsから渡されるProps（データ）を使用して、画像ギャラリーのUIを構築します。
 
 ```
 my-app/             
@@ -151,9 +151,6 @@ my-app/
 ,,,
 ```
 
-<img width="565" alt="Reactimage_1" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/19c42b04-862e-42b2-9b87-a5698e665205">
-
-
 ## 2.3 完成イメージ
 このプロジェクトの完成イメージを下図に示します。
 
@@ -165,11 +162,13 @@ textを入力すると検索結果が画像で表示されます。また画像�
 参考動画の`8:50〜`に従い、APIKeyを払い出してください。
 
 # 3 Pixabay簡易クローン
-全体の流れを下図に示します。
+ここから、Pixabay簡易クローンを構築します。  
+コードを差し替えることで、動作はできますが、各コードがどのような役割を持っているのかを3.1,3.2で説明します。
+また簡易クローン内での全体のデータの流れについてを下図に示します。
 
 <img width="1064" alt="Reactimage_3" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/60de11c4-bccd-4841-ae64-0fd68a13dc43">
 
-ここから、コードを塊で見たさいにどのような役割を持っているかを中心に記述します。
+
 
 ## 3.1 App.js
 ```
@@ -197,22 +196,23 @@ function App() {
         - このコードは、新しい参照を作成し、それをref変数に格納します。これを使って、特定のHTML要素の値を読み取ったり、その要素にフォーカスを当てたりすることができます。
 
 ```
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(ref.current.value); 
-    const endpointURL = `https://pixabay.com/api/?key=xxxxxxxxxxxxxxxxxxxxx=${ref.current.value}&image_type=photo`;
-    fetch(endpointURL).then((res) => {
-      return res.json();
-      })
-      .then((data) => {
-        console.log(data.hits); 
-        setFetchdata(data.hits); 
-      });
-  };
+  const handleSubmit = (e) => {・・・};  
 ```
 - handleSubmit は、ユーザーがフォームを送信するときに実行される関数です。
+
+```
+e.preventDefault();
+const endpointURL = `https://pixabay.com/api/?key=xxxxxxxxxxxxxxxxxxxxx=${ref.current.value}&image_type=photo`;
+fetch(endpointURL).then((res) => {
+    return res.json();
+    })
+    .then((data) => {
+    console.log(data.hits); 
+    setFetchdata(data.hits); 
+    });
+```
 - e.preventDefault()は、フォーム送信時のデフォルトの動作（ページのリロード）を防ぎます。これにより、ページがリロードされずに、フォームのデータを処理することができます。
-- useRefを使用し、フォームに入力された値を取得し、API用のURLを作成する（`https://~中略~{ref.current.value}`）。
+- useRefを使用し、フォームに入力された値を取得し、API用のURLを作成します（`https://・・・{ref.current.value}・・・`）。
 - fetch(endpointURL)は、Pixabay APIにリクエストを送るためのコードです。fetch 関数を使って、指定されたURLからデータを非同期に取得します。取得したデータはJSON形式で受け取り、data.hits をコンソールに出力し、setFetchdata 関数を使ってアプリケーションの状態を更新します。
 
 ```
@@ -228,7 +228,7 @@ return (
 }
 ```
 return内のJSXについて説明します。
-- `<form onSubmit={(e) => handleSubmit(e)}>` formにonSubmit属性を追加しています。formが送信されたときに、handleSubmit関数が呼び出されます。
+- `<form onSubmit={(e) => handleSubmit(e)}>` では、formにonSubmit属性を追加しています。formが送信されたときに、handleSubmit関数が呼び出されます。
 - `<input type="text" placeholder='画像を探す' ref={ref}/>` ユーザーがここに入力すると、その値はuseRefフックを使って参照されます。
 - `<ImageGallery fetchData={fetchData}/>` この行は、ImageGalleryコンポーネントをレンダリングします。fetchDataプロパティを通して、このコンポーネントにデータを渡しています。ImageGalleryは、これらのデータを使用して画像を表示します。
 
@@ -238,7 +238,7 @@ Reactでは関数コンポーネント内で別のコンポーネントを呼び
 またコンポーネント間にデータを引き渡す仕込みをPropsと呼びます。親コンポーネントから子コンポーネントへ値や関数を渡す際に使用され、子コンポーネントではこれらの値を使用して表示や挙動を制御します。
 
 今回は、App.jsの中で、ImageGallery.jsを呼び出して使用しています。また、 App.jsからfetchDataを受け取っています。
-ImageGallery内では、渡されたfetchData内の画像を表示します。
+ImageGallery.js内では、渡されたfetchData内の画像を表示します。
 
 ```
 const ImageGallery = ({ fetchData })
@@ -258,7 +258,7 @@ const ImageGallery = ({ fetchData })
         ))}
 </div>
 ```
-- `{fetchData.map((data) => ( ... ))}`ではmapメソッドを使って、fetchDataに含まれる各データに対して処理を行います。このメソッドは配列の各要素に対して同じ操作を行い、新しい要素の集合を作成します。具体的には、fetchDataの配列[0]がdataに格納され、各要素は一旦dataに格納され、( ... )内の処理が実施された後、次に配列[1]がdataに格納される。これを修了するまで繰り返します。
+- `{fetchData.map((data) => ( ... ))}`ではmapメソッドを使って、fetchDataに含まれる各データに対して処理を行います。このメソッドは配列の各要素に対して同じ操作を行い、新しい要素の集合を作成します。具体的には、fetchDataの配列[0]がdataに格納、( ... )内の処理が実施された後、次に配列[1]がdataに格納される。そしてこれが全ての配列に完了するまで繰り返します。
 
 
 ```
