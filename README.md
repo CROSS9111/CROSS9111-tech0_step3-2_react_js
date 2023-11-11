@@ -148,7 +148,7 @@ my-app/
 ,,,
 ```
 
-<img width="565" alt="Reactimage1" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/434f83a9-51d0-4a0d-b6d5-55b1b1a5ee12">
+<img width="565" alt="Reactimage_1" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/19c42b04-862e-42b2-9b87-a5698e665205">
 
 
 ## 2.3 完成
