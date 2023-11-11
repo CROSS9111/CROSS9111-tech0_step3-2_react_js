@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import ImageGallery from './ImageGallery';
 import { useRef, useState } from 'react';

@@ -123,7 +123,7 @@ function App() {
 
 全体イメージを掴めたと思いますので、Pixabayのクローンを実装してみましょう。
 
-## 2. Pixabay簡易クローンを作ろう
+## 2. Pixabay簡易クローン構築前準備
 ## 2.1 環境構築
 Githubのリンクからファイルをダウンロードしてください。
 
@@ -151,28 +151,26 @@ my-app/
 <img width="565" alt="Reactimage_1" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/19c42b04-862e-42b2-9b87-a5698e665205">
 
 
-## 2.3 完成
+## 2.3 完成イメージ
+このプロジェクトの完成イメージを下図に示します。
 
-## 1. 初期導入 (ファイル:sample0)
+<img width="496" alt="Reactimage_2" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/bd80f60a-015f-4312-86db-460208e0e383">
 
-```python
-pip install Flask
+## 2.4 前準備 PixabayのAPI払出し
+参考動画の`8:50〜`に従い、APIKeyを払い出してください。
+
+# 3 Pixabay簡易クローン
+## 3.1 App.js
 ```
-
-・sample0 ディレクトリに移動  
-・python app.py 起動  
-
-```python
-from flask import Flask
-app = Flask(__name__) # Flaskアプリケーションを作成
+import './App.css';
+import ImageGallery from './ImageGallery';
+import { useRef, useState } from 'react';
 ```
-Flaskのおまじない。 Flask クラスのインスタンスを作成し変数appに割当てている。  
-__name__ は、現在のPythonスクリプトの名前を表す特別な変数です。Flask クラスにこの変数を渡すことで、Flaskはアプリケーションのルートディレクトリを正確に特定でき、テンプレートや静的ファイルを適切に見つけることができます。  
+- App.js用のCSSスタイルシートであるApp.cssのインポート、App.jsの子コンポーネントであるImageGallery.jsをインポートします。
+- Reactには、状態管理などを関数コンポーネントで実装できるようにするHooks（フック）があり、useRefとuseStateはHooksの一つです。簡単に言えば、状態管理などを簡単に実装することができます。
+ - useStateは、コンポーネントの状態（state）を管理するために使われます。例えば、ユーザーの入力やAPIからのデータなど、コンポーネントのレンダリングに影響を与えるデータを保持・更新します。
+ - useRefは、Reactのコンポーネントで特定の要素（例えばテキストボックスやボタンなど）に「タグ」を付けて、それらに簡単にアクセスするための機能です。例えば、ユーザーがフォームに入力したテキストを読み取るためにuseRefを使うことができます。
 
-```python
-if __name__ == '__main__': # Webサーバーを起動 
-    app.run('127.0.0.1', 8080, debug=True)
-```
 
 このコードブロックは、Pythonで書かれたFlaskアプリケーションをローカルサーバーで実行するためのものです。<br><br>
 ・127.0.0.1 のIPアドレスと 8080 のポートで実行する。    
