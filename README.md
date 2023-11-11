@@ -1,21 +1,26 @@
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-# Flaskによる掲示板アプリケーション (ファイル:sample1)
-
-このプロジェクトは、PythonのFlaskフレームワークを使用して簡単な掲示板アプリケーションを作成します。
+# Reactによる写真検索アプリケーション (Pixabayクローン)
+このプロジェクトは、Reactを使用してPixabayの簡易版クローンを作成します。
+Pixabay：https://pixabay.com/ja/
 
 
 ## 概要
-Flaskではシンプルでカスタマイズ性が高いというメリットを活用し、簡単なWebアプリケーションやサービスを作成できたり、短いコードで手早く機能を実装したプロトタイプを作成したり、処理するリクエスト数が少ないBotなども作成ができます。大規模なシステムには向きませんが、小規模の環境で使うには小回りがきくマイクロウェブアプリケーションフレームワークです。
+Reactとは、WebサイトやWebアプリのUI部分を開発する際に活用するJavaScriptライブラリのことで、世界の多くのwebサイトでReactが採用されています。
+参考：https://www.gaji.jp/blog/2023/01/30/14069/
+
+Reactはコンポーネント指向で拡張性が高く、宣言的でソースコードが理解しやすいという特徴があります。詳細は省きますが、レンダリングに特徴があり、高速に動作します。
+また昨今は画面遷移がないSPAが主流ですが、Reactを用いることでそれは容易に達成できるだけでなく、リッチなUIも作り込むことができます。
+
+メモ：ライブラリとよく比較されるものに「フレームワーク」があります。フレームワークとは、新しいプログラムを開発する際に使える枠組みです。フレームワークを使えばプログラムの枠組み（土台）まで用意される分だけ、ライブラリより効率的とは言えます。その反面、決まった枠組みに従わないといけないので、ライブラリより自由度は低いです。
+
+## 1. Reactを体験してみよう！
+何はともあれ、Reactを体験しましょう。
+①：VScode起動
+②：作業ディレクトリを選択
+③：ターミナルを開く
+④：「npx create-react-app my-app」と入力後、Enter
+⑤：「Ok to proceed? (y)」と入力されたら、Enter
+※npxが使えない場合は、「npm install npx -g」等でインストールしてください。
+
 
 ## ファイル構造
 ```
