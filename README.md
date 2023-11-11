@@ -165,6 +165,10 @@ textを入力すると検索結果が画像で表示されます。また画像�
 参考動画の`8:50〜`に従い、APIKeyを払い出してください。
 
 # 3 Pixabay簡易クローン
+全体の流れを下図に示します。
+
+<img width="1064" alt="Reactimage_3" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/60de11c4-bccd-4841-ae64-0fd68a13dc43">
+
 ## 3.1 App.js
 ```
 import './App.css';
@@ -190,6 +194,25 @@ function App() {
         - useRefは、アプリケーション内の特定のHTML要素（例えば入力フィールド）に直接アクセスするための「参照（ref）」を作成します。
         - このコードは、新しい参照を作成し、それをref変数に格納します。これを使って、特定のHTML要素の値を読み取ったり、その要素にフォーカスを当てたりすることができます。
 
+```
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(ref.current.value); 
+    const endpointURL = `https://pixabay.com/api/?key=xxxxxxxxxxxxxxxxxxxxx=${ref.current.value}&image_type=photo`;
+    fetch(endpointURL).then((res) => {
+      return res.json();
+      })
+      .then((data) => {
+        console.log(data.hits); 
+        setFetchdata(data.hits); 
+      });
+  };
+```
+- handleSubmit は、ユーザーがフォームを送信するときに実行される関数です。
+- e.preventDefault()は、フォーム送信時のデフォルトの動作（ページのリロード）を防ぎます。これにより、ページがリロードされずに、フォームのデータを処理することができます。
+- input`https://~中略~{ref.current.value}`にはref入力した
+    - useStateについて
+        - useStateは
 
 このコードブロックは、Pythonで書かれたFlaskアプリケーションをローカルサーバーで実行するためのものです。<br><br>
 ・127.0.0.1 のIPアドレスと 8080 のポートで実行する。    
