@@ -57,8 +57,9 @@ my-app/             # プロジェクトフォルダ
 ```
 
 App.jsの中身を下記のように変更しましょう。  
-`return(<div classname ~~~)`の括弧内を全て消去し、`<h1>Hello,world</h1>` を追加し、保存します。  
-（下記をコピーして上書き保存してもOKです）
+`return(<div classname ~~~)`の括弧内を全て消去し、`<h1>Hello,world</h1>` を追加し、保存します。 
+
+*App.jsのサンプルを下記に示します。
 ```
 import logo from './logo.svg';
 import './App.css';
@@ -74,12 +75,14 @@ export default App;
 ブラウザに戻ると、Hello,worldと表示されます。
 
 ## 1.5 アプリケーションの変更体験(2)
-さらにApp.jsの中身を下記のように変更しましょう。  
-Reactでは複数の要素を返す場合、親要素（`div`）で囲います。  
-まず、`const message = "Demo or Die";`と追記し、`message`を定義します。  
-定義したメッセージを表示するために、`return()`内を変更します。  
-`return()`内にて、`message`を参照する場合は`{}`で囲う必要があります。  
-（下記をコピーして上書き保存してください）
+定数を宣言し、それを表示するように変更してみましょう。
+まず、`function App(){`の後に、定数（今回はmessage）を宣言します。
+`const message = "Demo or Die";`と追記してください。  
+定義した`message`を表示するために、`return()`内を変更します。  
+ただし、Reactでは複数の要素を返す場合、親要素（`div`）で囲います。  
+また`return()`内で`message`を参照する場合は`{}`で囲う必要があります。 
+ 
+*App.jsのサンプルを下記に示します。
 
 ```
 import logo from './logo.svg';
