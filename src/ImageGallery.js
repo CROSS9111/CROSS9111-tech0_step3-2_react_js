@@ -1,14 +1,14 @@
 import React from 'react'
-import "./imageGrallery.css"
+import "./imageGallery.css"
 
 // Propsについて:
 // Propsは、Reactコンポーネント間でデータを渡すための仕組みです。
 // 親コンポーネントから子コンポーネントへ値や関数を渡す際に使用され、
 // 子コンポーネントではこれらの値を使用して表示や挙動を制御します。
 
-// ImageGralleryコンポーネント: 外部から受け取った画像データ（fetchData）を表示するためのコンポーネント。
+// ImageGalleryコンポーネント: 外部から受け取った画像データ（fetchData）を表示するためのコンポーネント。
 // ({ fetchData }) と書くことで参照することができる。
-const ImageGrallery = ({ fetchData }) => {
+const ImageGallery = ({ fetchData }) => {
   return (
     <div>
         {/* 画像を格納するためのコンテナー */}
@@ -30,4 +30,4 @@ const ImageGrallery = ({ fetchData }) => {
   )
 }
 
-export default ImageGrallery
+export default ImageGallery

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ImageGrallery from './ImageGrallery';
+import ImageGallery from './ImageGallery';
 import { useRef, useState } from 'react';
 
 // React Hooksについて:
@@ -45,7 +45,7 @@ function App() {
       </form>
       {/* ImageGalleryンポーネント)のレンダリング */}
       {/* fetchDataを`ImageGallery`に渡している。 */}
-      <ImageGrallery fetchData={fetchData}/>
+      <ImageGallery fetchData={fetchData}/>
 
     </div>
   );
