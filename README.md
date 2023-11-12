@@ -128,9 +128,9 @@ function App() {
 
 ## 2. Pixabay簡易クローン構築前準備
 ## 2.1 環境構築
-Githubのリンクからファイルをダウンロードしてください。
+Githubの`Code`をクリック、`Download ZIP`からファイルをダウンロードし、作成したmy-appフォルダの中身をと入れ替えてください。
 
-作成したmy-appフォルダの中身をダウンロードしたファイルと入れ替えてください。
+<img width="1026" alt="Reactimage_4" src="https://github.com/CROSS9111/CROSS9111-tech0_step3-2_react_js/assets/128927563/b131e580-06b5-480e-b041-940e82933de2">
 
 ## 2.2 ファイル構造
 Pixabay簡易クローンに際して、変更したファイル構成を示します。
