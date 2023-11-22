@@ -13,6 +13,18 @@ Reactとは、WebサイトやWebアプリのUI部分を開発する際に活用�
 
 ## 1. Reactを体験してみよう！
 何はともあれ、Reactを体験しましょう！ 
+## 1.0 React環境構築準備
+Node.js&npm&npxがインストールされているか確認しましょう。
+`node --version`
+`npm --v`
+`npx --v`
+もし、Versionが表示されていない場合は、下記のURLを参考にし、Node.jsををインストールしましょう。
+- M1 Mac系
+https://qiita.com/y_sone/items/08e3f8687092173b1d2f
+
+- Windouws系
+https://qiita.com/echolimitless/items/83f8658cf855de04b9ce
+
 ## 1.1 環境構築
 Reactを動作する環境を構築しましょう。  
 ①. VScode起動  
@@ -265,3 +277,29 @@ const ImageGallery = ({ fetchData })
 export default ImageGallery
 ```
 - このように記載することで、外部からImageGallery.jsを使用可能とする。
+
+## 3.3 useEffect
+今回のケースでは不要でしたが、概念として重要なuseEffectについて少しだけ触れます。useEffectもHooks（フック）の一つで有り、指定した変数の状態によって再レンダリングを制御できたり、副作用(関数外に影響を及ぼす処理)を記述できるといったメリットがあります。
+`import { useRef, useState ,useEffect} from 'react';`
+- useEffectをimportします。
+
+`const [serchword,setSerchword] = useState(0);`
+- useState は、コンポーネントの状態を管理するためのフックで、serchword という名前の状態変数を作成しており、その初期値は 0 です。
+
+```
+  useEffect(() => {
+    if (fetchData.length > 0) {
+      let count = serchword;
+      count++;
+      setSerchword(count);
+    }
+  },[fetchData])
+```
+- この関数は、fetchData という配列またはオブジェクトが変更されるたびに実行されます。これは、第二引数の依存配列（[fetchData]）によって制御されています。
+- fetchData.length > 0 の条件は、fetchData にデータが含まれている場合にのみ、コードブロックを実行するようにしています。
+- let count = serchword; で現在の serchword の値を count にコピーします。count++ で count の値を1増やします。
+- setSerchword(count); で更新された count の値を serchword にセットします。
+
+`<p>{serchword}</p>`
+- ここでserchwordの値を表示します。
+
