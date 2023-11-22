@@ -278,7 +278,7 @@ export default ImageGallery
 ```
 - このように記載することで、外部からImageGallery.jsを使用可能とする。
 
-## 3.3 useEffect
+## 3.3 おまけ：useEffectについて簡単に。
 今回のケースでは不要でしたが、概念として重要なuseEffectについて少しだけ触れます。useEffectもHooks（フック）の一つで有り、指定した変数の状態によって再レンダリングを制御できたり、副作用(関数外に影響を及ぼす処理)を記述できるといったメリットがあります。
 `import { useRef, useState ,useEffect} from 'react';`
 - useEffectをimportします。
