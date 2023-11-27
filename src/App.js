@@ -21,7 +21,9 @@ function App() {
     console.log(ref.current.value); // 現在のテキスト入力値をログに出力
     
     // Pixabay APIへのリクエストURLを組み立てる
-    const endpointURL = `https://pixabay.com/api/?key=xxxxxxxxxxxxxxxxxxxxx=${ref.current.value}&image_type=photo`;
+    // Pixabay APIの構成↓
+    // "https://pixabay.com/api/?key=" + API_KEY + "&q=" + {ref.current.value} + "&image_type=photo";
+    const endpointURL = `https://pixabay.com/api/?key=ここにAPIKeyを入れてください&q=${ref.current.value}&image_type=photo`;
 
     // Fetch APIを使用してデータを非同期で取得
     fetch(endpointURL).then((res) => {

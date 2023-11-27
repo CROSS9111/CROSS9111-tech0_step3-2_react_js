@@ -214,7 +214,7 @@ function App() {
 
 ```
 e.preventDefault();
-const endpointURL = `https://pixabay.com/api/?key=xxxxxxxxxxxxxxxxxxxxx=${ref.current.value}&image_type=photo`;
+const endpointURL = `https://pixabay.com/api/?key=ここにAPIKeyを入れてください&q=${ref.current.value}&image_type=photo`;
 fetch(endpointURL).then((res) => {
     return res.json();
     })
@@ -225,6 +225,8 @@ fetch(endpointURL).then((res) => {
 ```
 - e.preventDefault()は、フォーム送信時のデフォルトの動作（ページのリロード）を防ぎます。これにより、ページがリロードされずに、フォームのデータを処理することができます。
 - useRefを使用し、フォームに入力された値を取得し、API用のURLを作成します（`https://・・・{ref.current.value}・・・`）。
+- APIKeyは下記の構成になっております。「ここにAPIKeyを入れてください」の部分に払い出したAPIKeyを入れてください。
+  -  `https://pixabay.com/api/?key=" + API_KEY + "&q=" + {ref.current.value} + "&image_type=photo`
 - fetch(endpointURL)は、Pixabay APIにリクエストを送るためのコードです。fetch 関数を使って、指定されたURLからデータを非同期に取得します。取得したデータはJSON形式で受け取り、data.hits をコンソールに出力し、setFetchdata 関数を使ってアプリケーションの状態を更新します。
 
 ```
